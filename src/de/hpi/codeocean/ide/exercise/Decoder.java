@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Decoder {
 	
-	private static final char CYPHER_ON = '-';
+	private static final char CYPHER_ON = '+';
 	private static final char CYPHER_OFF = '-';
 	private List<MorseCharacter> morseAlphabet;
 	
@@ -77,7 +77,7 @@ public class Decoder {
 		int index = 0;
 		
 		while (index < inputStream.length) {
-			if (inputStream[++index] == CYPHER_ON) {
+			if (inputStream[index++] == CYPHER_ON) {
 				if (index < inputStream.length && inputStream[index] == CYPHER_OFF)
 					morseSymbol.add(CypherSymbol.SHORT);
 				else if (index < inputStream.length && inputStream[index] == CYPHER_ON) {
